@@ -57,6 +57,12 @@
     <Compile Include="Controls\HeroCard.Designer.cs">
       <DependentUpon>HeroCard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controls\LargeButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\LargeButton.Designer.cs">
+      <DependentUpon>LargeButton.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\DrawForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +90,9 @@
     <Compile Include="Utils\ConfigHelper.cs" />
     <EmbeddedResource Include="Controls\HeroCard.resx">
       <DependentUpon>HeroCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controls\LargeButton.resx">
+      <DependentUpon>LargeButton.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\DrawForm.resx">
       <DependentUpon>DrawForm.cs</DependentUpon>
@@ -124,6 +133,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Background.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button_0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button_1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Button_2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
