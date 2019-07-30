@@ -28,40 +28,69 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DrawForm));
+            this.UnityTimer = new System.Windows.Forms.Timer(this.components);
+            this.NameLabel = new System.Windows.Forms.Label();
+            this.DrawButton = new LuckDog.Controls.LargeButton();
             this.SuspendLayout();
             // 
-            // button1
+            // UnityTimer
             // 
-            this.button1.Location = new System.Drawing.Point(84, 67);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(312, 113);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.UnityTimer.Interval = 30;
+            this.UnityTimer.Tick += new System.EventHandler(this.UnityTimer_Tick);
+            // 
+            // NameLabel
+            // 
+            this.NameLabel.AutoEllipsis = true;
+            this.NameLabel.BackColor = System.Drawing.Color.Transparent;
+            this.NameLabel.Font = new System.Drawing.Font("微软雅黑", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.NameLabel.ForeColor = System.Drawing.Color.White;
+            this.NameLabel.Image = global::LuckDog.AppResource.ContainerBackground;
+            this.NameLabel.Location = new System.Drawing.Point(147, 29);
+            this.NameLabel.Name = "NameLabel";
+            this.NameLabel.Size = new System.Drawing.Size(360, 155);
+            this.NameLabel.TabIndex = 1;
+            this.NameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // DrawButton
+            // 
+            this.DrawButton.AutoEllipsis = true;
+            this.DrawButton.BackColor = System.Drawing.Color.DimGray;
+            this.DrawButton.Font = new System.Drawing.Font("微软雅黑", 25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.DrawButton.ForeColor = System.Drawing.Color.White;
+            this.DrawButton.Image = ((System.Drawing.Image)(resources.GetObject("DrawButton.Image")));
+            this.DrawButton.Location = new System.Drawing.Point(289, 289);
+            this.DrawButton.Name = "DrawButton";
+            this.DrawButton.Size = new System.Drawing.Size(236, 128);
+            this.DrawButton.TabIndex = 0;
+            this.DrawButton.Text = "开始";
+            this.DrawButton.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.DrawButton.Click += new System.EventHandler(this.DrawButton_Click);
             // 
             // DrawForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 750);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.NameLabel);
+            this.Controls.Add(this.DrawButton);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "DrawForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Luck Dog";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.Shown += new System.EventHandler(this.DrawForm_Shown);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
+        private Controls.LargeButton DrawButton;
+        private System.Windows.Forms.Timer UnityTimer;
+        private System.Windows.Forms.Label NameLabel;
     }
 }
 

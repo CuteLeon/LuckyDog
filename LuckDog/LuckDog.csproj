@@ -69,6 +69,7 @@
     <Compile Include="Forms\DrawForm.Designer.cs">
       <DependentUpon>DrawForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Managers\PlayerManager.cs" />
     <Compile Include="Managers\SkinManager.cs" />
     <Compile Include="Models\Hero.cs" />
     <Compile Include="Models\Skin.cs" />
@@ -142,6 +143,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Button_2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ContainerBackground.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

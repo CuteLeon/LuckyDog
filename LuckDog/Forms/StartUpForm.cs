@@ -90,7 +90,14 @@ namespace LuckDog.Forms
 
         private void DrawButton_Click(object sender, EventArgs e)
         {
-
+            using (var drawForm = new DrawForm()
+            {
+                BackgroundImage = this.BackgroundImage,
+                BackgroundImageLayout = ImageLayout.Stretch,
+            })
+            {
+                drawForm.ShowDialog(this);
+            }
         }
     }
 }
