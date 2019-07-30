@@ -89,6 +89,7 @@
       <DependentUpon>StartUpForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Utils\ConfigHelper.cs" />
+    <Compile Include="Utils\NameListComparer.cs" />
     <EmbeddedResource Include="Controls\HeroCard.resx">
       <DependentUpon>HeroCard.cs</DependentUpon>
     </EmbeddedResource>
@@ -146,6 +147,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\ContainerBackground.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="NameList.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -49,7 +49,7 @@
             this.NameLabel.Image = global::LuckDog.AppResource.ContainerBackground;
             this.NameLabel.Location = new System.Drawing.Point(147, 29);
             this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(360, 155);
+            this.NameLabel.Size = new System.Drawing.Size(500, 155);
             this.NameLabel.TabIndex = 1;
             this.NameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 

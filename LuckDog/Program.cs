@@ -2,7 +2,6 @@
 using System.Threading;
 using System.Windows.Forms;
 using LuckDog.Forms;
-using LuckDog.Utils;
 
 namespace LuckDog
 {
@@ -17,7 +16,6 @@ namespace LuckDog
             Application.ThreadException += Application_ThreadException;
             AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
 
-            _ = ConfigHelper.ResourceDirectory;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new StartUpForm());

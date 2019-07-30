@@ -1,13 +1,14 @@
 ﻿using System;
-using System.Linq;
+using System.Collections.Generic;
 using System.Windows.Forms;
-using LuckDog.Spiders;
 
 namespace LuckDog.Forms
 {
     public partial class DrawForm : Form
     {
         Random unityRandom = new Random();
+
+        public List<string> NameList;
 
         public DrawForm()
         {
@@ -23,7 +24,14 @@ namespace LuckDog.Forms
             this.DrawButton.Top = (int)(this.Height * 0.7);
 
             this.NameLabel.Left = (this.Width - this.NameLabel.Width) / 2;
-            this.NameLabel.Top = (int)(this.Height * 0.2);
+            this.NameLabel.Top = (int)(this.Height * 0.4);
+
+            if (this.NameList.Count == 0)
+            {
+                MessageBox.Show("抽奖名单长度为零！", "无法抽奖", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.Close();
+            }
         }
 
         private void DrawButton_Click(object sender, EventArgs e)
@@ -42,7 +50,8 @@ namespace LuckDog.Forms
 
         private void UnityTimer_Tick(object sender, EventArgs e)
         {
-            this.NameLabel.Text = this.unityRandom.Next(0, 1000).ToString();
+            int index = this.unityRandom.Next(0, this.NameList.Count);
+            this.NameLabel.Text = this.NameList[index];
         }
     }
 }

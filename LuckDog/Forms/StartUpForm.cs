@@ -11,6 +11,7 @@ namespace LuckDog.Forms
     {
         IPVPGameSpider gameSpider;
         SkinManager skinManager;
+        PlayerManager playerManager;
 
         public StartUpForm()
         {
@@ -19,6 +20,7 @@ namespace LuckDog.Forms
             this.Icon = AppResource.DrawIcon;
             this.gameSpider = new QQPVPGameSpider();
             this.skinManager = new SkinManager(this.gameSpider);
+            this.playerManager = new PlayerManager();
         }
 
         private async void StartUpForm_Shown(object sender, EventArgs e)
@@ -27,6 +29,15 @@ namespace LuckDog.Forms
 
             this.DrawButton.Left = (this.Width - this.DrawButton.Width) / 2;
             this.DrawButton.Top = (int)(this.Height * 0.7);
+
+            this.playerManager.LoadFromTextFile("NameList.txt");
+
+            if (this.playerManager.NameList.Count == 0)
+            {
+                MessageBox.Show("抽奖名单长度为零！", "无法抽奖", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                this.Close();
+            }
 
             try
             {
@@ -94,6 +105,7 @@ namespace LuckDog.Forms
             {
                 BackgroundImage = this.BackgroundImage,
                 BackgroundImageLayout = ImageLayout.Stretch,
+                NameList = this.playerManager.NameList,
             })
             {
                 drawForm.ShowDialog(this);
