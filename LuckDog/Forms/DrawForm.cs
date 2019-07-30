@@ -3,12 +3,13 @@ using System.Linq;
 using System.Windows.Forms;
 using LuckDog.Spiders;
 
-namespace LuckDog
+namespace LuckDog.Forms
 {
     public partial class DrawForm : Form
     {
         public DrawForm()
         {
+            this.Icon = AppResource.DrawIcon;
             this.InitializeComponent();
         }
 

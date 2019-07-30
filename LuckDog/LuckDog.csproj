@@ -34,6 +34,9 @@
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\DrawIcon.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -48,12 +51,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DrawForm.cs">
+    <Compile Include="Controls\HeroCard.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controls\HeroCard.Designer.cs">
+      <DependentUpon>HeroCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\DrawForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="DrawForm.Designer.cs">
+    <Compile Include="Forms\DrawForm.Designer.cs">
       <DependentUpon>DrawForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Managers\SkinManager.cs" />
     <Compile Include="Models\Hero.cs" />
     <Compile Include="Models\Skin.cs" />
     <Compile Include="Program.cs" />
@@ -65,9 +75,21 @@
     </Compile>
     <Compile Include="Spiders\IPVPGameSpider.cs" />
     <Compile Include="Spiders\QQPVPGameSpider.cs" />
+    <Compile Include="Forms\StartUpForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\StartUpForm.Designer.cs">
+      <DependentUpon>StartUpForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utils\ConfigHelper.cs" />
-    <EmbeddedResource Include="DrawForm.resx">
+    <EmbeddedResource Include="Controls\HeroCard.resx">
+      <DependentUpon>HeroCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\DrawForm.resx">
       <DependentUpon>DrawForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\StartUpForm.resx">
+      <DependentUpon>StartUpForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -95,7 +117,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Resources\" />
+    <None Include="Resources\Avatar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DrawIcon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

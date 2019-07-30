@@ -1,4 +1,4 @@
-﻿namespace LuckDog
+﻿namespace LuckDog.Forms
 {
     partial class DrawForm
     {
@@ -33,9 +33,10 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(63, 40);
+            this.button1.Location = new System.Drawing.Point(84, 67);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(234, 68);
+            this.button1.Size = new System.Drawing.Size(312, 113);
             this.button1.TabIndex = 0;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
@@ -43,12 +44,13 @@
             // 
             // DrawForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1067, 750);
             this.Controls.Add(this.button1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "DrawForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Luck Dog";
