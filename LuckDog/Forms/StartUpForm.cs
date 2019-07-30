@@ -1,19 +1,23 @@
 ﻿using System;
 using System.Windows.Forms;
 using LuckDog.Controls;
+using LuckDog.Managers;
 using LuckDog.Spiders;
 
 namespace LuckDog.Forms
 {
     public partial class StartUpForm : Form
     {
-        IPVPGameSpider gameSpider = new QQPVPGameSpider();
+        IPVPGameSpider gameSpider;
+        SkinManager skinManager;
 
         public StartUpForm()
         {
             this.InitializeComponent();
 
             this.Icon = AppResource.DrawIcon;
+            this.gameSpider = new QQPVPGameSpider();
+            this.skinManager = new SkinManager(this.gameSpider);
         }
 
         private async void StartUpForm_Shown(object sender, System.EventArgs e)
@@ -34,7 +38,7 @@ namespace LuckDog.Forms
                 {
                     var heroCard = new HeroCard();
                     heroCard.Text = hero.Name;
-                    heroCard.Image = await this.gameSpider.GetSmallSkin(hero.ID, hero.DefaultSkin.ID);
+                    heroCard.Image = await this.skinManager.ReadOrDownloadSmallSkin(hero.ID, hero.DefaultSkin.ID);
 
                     this.HerosPanel.Controls.Add(heroCard);
                     Application.DoEvents();
