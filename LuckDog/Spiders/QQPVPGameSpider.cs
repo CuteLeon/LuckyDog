@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Net.Http;
 using System.Text.RegularExpressions;
@@ -63,6 +64,50 @@ namespace LuckDog.Spiders
                 .ToList();
 
             return hero;
+        }
+
+        /// <summary>
+        /// 获取皮肤背景大图
+        /// </summary>
+        /// <param name="heroId"></param>
+        /// <param name="skinId"></param>
+        /// <returns></returns>
+        public async Task<Image> GetBigSkin(string heroId, string skinId)
+        {
+            try
+            {
+                var uri = $"https://game.gtimg.cn/images/yxzj/img201606/skin/hero-info/{heroId}/{heroId}-bigskin-{skinId}.jpg";
+                var stream = await this.httpClient.GetStreamAsync(uri);
+                var image = Image.FromStream(stream);
+                return image;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"获取皮肤大图失败：{ex.Message}");
+                return default;
+            }
+        }
+
+        /// <summary>
+        /// 获取皮肤背景小图
+        /// </summary>
+        /// <param name="heroId"></param>
+        /// <param name="skinId"></param>
+        /// <returns></returns>
+        public async Task<Image> GetSmallSkin(string heroId, string skinId)
+        {
+            try
+            {
+                var uri = $"https://game.gtimg.cn/images/yxzj/img201606/heroimg/{heroId}/{heroId}-smallskin-{skinId}.jpg";
+                var stream = await this.httpClient.GetStreamAsync(uri);
+                var image = Image.FromStream(stream);
+                return image;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"获取皮肤小图失败：{ex.Message}");
+                return default;
+            }
         }
     }
 }
