@@ -27,6 +27,7 @@ namespace LuckDog.Forms
                 return;
             }
 
+            this.HerosPanel.Show();
             heros.ForEach(async hero =>
             {
                 try
@@ -36,6 +37,7 @@ namespace LuckDog.Forms
                     heroCard.Image = await this.gameSpider.GetSmallSkin(hero.ID, hero.DefaultSkin.ID);
 
                     this.HerosPanel.Controls.Add(heroCard);
+                    Application.DoEvents();
                 }
                 catch (Exception ex)
                 {

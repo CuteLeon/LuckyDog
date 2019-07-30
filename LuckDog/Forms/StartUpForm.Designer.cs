@@ -38,14 +38,17 @@
             this.HerosPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.HerosPanel.Location = new System.Drawing.Point(0, 0);
             this.HerosPanel.Name = "HerosPanel";
-            this.HerosPanel.Size = new System.Drawing.Size(341, 450);
+            this.HerosPanel.Size = new System.Drawing.Size(341, 491);
             this.HerosPanel.TabIndex = 0;
+            this.HerosPanel.Visible = false;
             // 
             // StartUpForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.BackgroundImage = global::LuckDog.AppResource.Background;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.ClientSize = new System.Drawing.Size(806, 491);
             this.Controls.Add(this.HerosPanel);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
