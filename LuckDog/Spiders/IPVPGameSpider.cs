@@ -1,7 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
+using LuckDog.Models;
 
 namespace LuckDog.Spiders
 {
@@ -10,6 +9,10 @@ namespace LuckDog.Spiders
     /// </summary>
     public interface IPVPGameSpider
     {
-
+        /// <summary>
+        /// 获取英雄列表
+        /// </summary>
+        /// <returns></returns>
+        Task<List<Hero>> GetHeroList();
     }
 }

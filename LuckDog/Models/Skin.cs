@@ -19,5 +19,8 @@
         /// 英雄
         /// </summary>
         public Hero Hero { get; set; }
+
+        public override string ToString()
+            => $"{this.Hero?.Name} ({this.ID}) [{this.Name}]";
     }
 }

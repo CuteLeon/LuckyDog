@@ -31,5 +31,8 @@ namespace LuckDog.Models
         /// 皮肤列表
         /// </summary>
         public List<Skin> Skins { get; set; } = new List<Skin>();
+
+        public override string ToString()
+            => $"{this.Name} ({this.ID}) [{this.DefaultSkin?.Name}]";
     }
 }

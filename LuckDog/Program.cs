@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Text;
-using System.Collections.Generic;
-using System.Linq;
+using System.Threading;
 using System.Windows.Forms;
-using System.Net;
+using LuckDog.Utils;
 
 namespace LuckDog
 {
@@ -15,11 +13,19 @@ namespace LuckDog
         [STAThread]
         static void Main()
         {
-            var heroList = new WebClient().DownloadString(@"https://pvp.qq.com/web201605/js/herolist.json");
+            Application.ThreadException += Application_ThreadException;
+            AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
 
+            _ = ConfigHelper.ResourceDirectory;
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new DrawForm());
         }
+
+        private static void CurrentDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+            => MessageBox.Show($"当前域未捕捉异常：{(e.ExceptionObject as Exception).Message}", "人家不擅长战斗呢", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        private static void Application_ThreadException(object sender, ThreadExceptionEventArgs e)
+            => MessageBox.Show($"应用程序未捕捉异常：{e.Exception.Message}", "人生，乏味啊", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 }

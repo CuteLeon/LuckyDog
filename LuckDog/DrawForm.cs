@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
+using LuckDog.Spiders;
 
 namespace LuckDog
 {
@@ -13,7 +8,13 @@ namespace LuckDog
     {
         public DrawForm()
         {
-            InitializeComponent();
+            this.InitializeComponent();
+        }
+
+        private async void Button1_Click(object sender, EventArgs e)
+        {
+            IPVPGameSpider gameSpider = new QQPVPGameSpider();
+            var heros = await gameSpider.GetHeroList();
         }
     }
 }
